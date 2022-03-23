@@ -81,16 +81,11 @@ newDate.innerHTML = `${day} the ${date}, ${hours}:${second}`;
 
 //
 
-function search(event) {
-  event.preventDefault();
-  let inputCity = document.querySelector("#cityName");
-  let inputCityValue = inputCity.value;
-  let apiKey = "d3592968d288237ab5de304e493c66f3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(showWeather);
-}
-let form = document.querySelector("#city");
-form.addEventListener("submit", search);
+//function search(event) {
+//event.preventDefault();
+//let inputCity = document.querySelector("#cityName");
+//let inputCityValue = inputCity.value;
+//}
 
 //
 
@@ -118,7 +113,19 @@ function displayTemperature(response) {
 }
 
 //
-let apiKey = "d3592968d288237ab5de304e493c66f3";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Chattanooga&appid=${apiKey}&units=imperial`;
-axios.get(apiUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "d3592968d288237ab5de304e493c66f3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInput = document.querySelector("#city-name");
+  search(cityInput.value);
+}
+
+let form = document.querySelector("#city");
+form.addEventListener("submit", search);
+
 search("Chattanooga");
