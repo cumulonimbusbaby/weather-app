@@ -105,8 +105,10 @@ h1.innerHTML = `${day} the ${date}, ${hours}:${second}`;
 
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = response.data.main.temp;
+  let cityElement = document.querySelector("#currentCity");
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  cityElement.innerHTML = response.data.name;
 }
 let apiKey = "d3592968d288237ab5de304e493c66f3";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Chattanooga&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(displayTemperature);
