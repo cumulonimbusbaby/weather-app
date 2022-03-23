@@ -81,22 +81,32 @@ h1.innerHTML = `${day} the ${date}, ${hours}:${second}`;
 
 //
 
-function search(event) {
-  event.preventDefault();
-  let inputCity = document.querySelector("#cityName");
-  let inputCityValue = inputCity.value;
-  let apiKey = "d3592968d288237ab5de304e493c66f3";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(showWeather);
-}
-let form = document.querySelector("#city");
-form.addEventListener("submit", search);
+//function search(event) {
+// event.preventDefault();
+// let inputCity = document.querySelector("#cityName");
+// let inputCityValue = inputCity.value;
+// let apiKey = "d3592968d288237ab5de304e493c66f3";
+// let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
+// axios.get(apiUrl).then(showWeather);
+//}
+//let form = document.querySelector("#city");
+//form.addEventListener("submit", search);
 
 //
 
-function showWeather(response) {
-  let h2 = document.querySelector("h2");
-  let temperature = Math.round(response.data.main.temp);
-  let city = response.data.name;
-  h2.innerHTML = `It is currently ${temperature}° in ${city}!`;
+//function showWeather(response) {
+//let h2 = document.querySelector("h2");
+// let temperature = Math.round(response.data.main.temp);
+//let city = response.data.name;
+//h2.innerHTML = `It is currently ${temperature}° in ${city}!`;
+//}
+
+//
+
+function displayTemperature(response) {
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = response.data.main.temp;
 }
+let apiKey = "d3592968d288237ab5de304e493c66f3";
+let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
+axios.get(apiUrl).then(displayTemperature);
