@@ -76,8 +76,8 @@ let minute = [
 console.log(date);
 let day = days[now.getDay()];
 let second = minute[now.getMinutes()];
-let h1 = document.querySelector("h1");
-h1.innerHTML = `${day} the ${date}, ${hours}:${second}`;
+let newDate = document.querySelector("#currentDate");
+newDate.innerHTML = `${day} the ${date}, ${hours}:${second}`;
 
 //
 
