@@ -81,16 +81,16 @@ h1.innerHTML = `${day} the ${date}, ${hours}:${second}`;
 
 //
 
-//function search(event) {
-// event.preventDefault();
-// let inputCity = document.querySelector("#cityName");
-// let inputCityValue = inputCity.value;
-// let apiKey = "d3592968d288237ab5de304e493c66f3";
-// let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
-// axios.get(apiUrl).then(showWeather);
-//}
-//let form = document.querySelector("#city");
-//form.addEventListener("submit", search);
+function search(event) {
+  event.preventDefault();
+  let inputCity = document.querySelector("#cityName");
+  let inputCityValue = inputCity.value;
+  let apiKey = "d3592968d288237ab5de304e493c66f3";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${inputCityValue}&appid=${apiKey}&units=imperial`;
+  axios.get(apiUrl).then(showWeather);
+}
+let form = document.querySelector("#city");
+form.addEventListener("submit", search);
 
 //
 
@@ -106,9 +106,19 @@ h1.innerHTML = `${day} the ${date}, ${hours}:${second}`;
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#currentCity");
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#windSpeed");
+
   temperatureElement.innerHTML = Math.round(response.data.main.temp);
   cityElement.innerHTML = response.data.name;
+  descriptionElement.innerHTML = response.data.weather[0].description;
+  humidityElement.innerHTML = responce.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
 }
+
+//
 let apiKey = "d3592968d288237ab5de304e493c66f3";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=Chattanooga&appid=${apiKey}&units=imperial`;
 axios.get(apiUrl).then(displayTemperature);
+search("Chattanooga");
