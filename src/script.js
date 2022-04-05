@@ -24,11 +24,10 @@ function formatDate(timestamp) {
 function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
-  let cityElement = document.querySelector("#city");
+  let cityElement = document.querySelector("h1");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  ///let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
@@ -75,9 +74,6 @@ function displayCelsiusTemperature(event) {
 }
 
 let celsiusTemperature = null;
-
-let h1Element = document.querySelector("h1"):
-h1Element.innerHTML= cityInputElement.value;
 
 let form = document.querySelector("#cityName");
 form.addEventListener("submit", handleSubmit);
