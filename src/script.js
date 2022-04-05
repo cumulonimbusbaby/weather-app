@@ -20,14 +20,15 @@ function formatDate(timestamp) {
   let day = days[date.getDay()];
   return `${day} ${hours}:${minutes}`;
 }
-function displayTemprature(response) {
+
+function displayTemperature(response) {
   console.log(response.data);
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
   let humidityElement = document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
-  let dateElement = document.querySelector("#date");
+  ///let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.main.temp;
@@ -47,7 +48,7 @@ function displayTemprature(response) {
 function search(city) {
   let apiKey = "d3592968d288237ab5de304e493c66f3";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=imperial`;
-  axios.get(apiUrl).then(displayTemprature);
+  axios.get(apiUrl).then(displayTemperature);
 }
 
 function handleSubmit(event) {
