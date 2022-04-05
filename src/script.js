@@ -76,6 +76,9 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
+let h1Element = document.querySelector("#city"):
+h1Element.innerHTML= cityInputElement.value;
+
 let form = document.querySelector("#cityName");
 form.addEventListener("submit", handleSubmit);
 
