@@ -84,7 +84,7 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
-search("Chattanooga");
+search("cityInputElement.value");
 
 /// hi whoever checks my homework, i know this code is like half completed
 /// and very broken but i wanted to try to get my homework out while i
