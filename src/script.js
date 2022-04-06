@@ -52,7 +52,7 @@ function search(city) {
 
 function handleSubmit(event) {
   event.preventDefault();
-  let cityInputElement = document.querySelector("#cityName");
+  let cityInputElement = document.querySelector("#city");
   search(cityInputElement.value);
 }
 
@@ -75,7 +75,7 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
-let form = document.querySelector("#cityName");
+let form = document.querySelector("#city");
 form.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
