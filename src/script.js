@@ -23,11 +23,16 @@ function formatDate(timestamp) {
 
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
-  forecastElement.innerHTML = `
-  <div class="row">
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thursday", "Friday", "Saturday", "Sunday"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
     <div class="col-2">
         <div class="weather-forecast-date">
-          Thursday
+          ${day}
         </div>
           <br>
         <img src="http://openweathermap.org/img/wn/04d@2x.png" 
@@ -43,8 +48,11 @@ function displayForecast() {
           </span>
         </div>
      </div>
-  </div>
   `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
 
 function displayTemperature(response) {
@@ -113,3 +121,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Chattanooga");
+displayForecast();
