@@ -87,11 +87,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Chattanooga");
-
-/// hi whoever checks my homework, i know this code is like half completed
-/// and very broken but i wanted to try to get my homework out while i
-/// had the chance, as to not keep falling behind. i've been rewatching
-/// the lessons and asking quesiton in slack but i'm still having trouble
-/// figuring out why some things are not working correctly.
-/// anyways, something is better than nothing.
-/// have a good day haha💜
